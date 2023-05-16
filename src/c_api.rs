@@ -1,5 +1,5 @@
+use crate::rust_code::{print_input, Status};
 use std::os::raw::{c_int, c_uint};
-use crate::rust_code::{Status, print_input};
 
 #[repr(C)]
 pub struct Data {
@@ -19,6 +19,9 @@ pub unsafe extern "C" fn print_c(input: *const Data) {
     let values = std::slice::from_raw_parts(input.values, input.values_len as usize);
     let values = values.iter().map(|&x| x).collect::<Vec<_>>();
     let status = &input.status;
-    let rust_data  = crate::rust_code::Data { values, status: *status };
+    let rust_data = crate::rust_code::Data {
+        values,
+        status: *status,
+    };
     print_input(&rust_data);
 }

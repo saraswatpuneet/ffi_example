@@ -7,7 +7,7 @@ pub struct Data {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub enum Status {
-    OK,
+    Ok,
     Error,
 }
 

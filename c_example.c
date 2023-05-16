@@ -6,7 +6,7 @@ int main() {
     Data data;
     data.values = (uint32_t[]){1, 2, 3};
     data.values_len = 3;
-    data.status = OK;
+    data.status = Ok;
 
     // Call the print_input function from Rust
     print_c(&data);
